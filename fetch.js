@@ -37,8 +37,8 @@ window.addEventListener("load",()=>{
     let data = await (await fetch(api)).json()
     console.log( data);
 
-
-    Tempvar.textContent= data.main.temp;
+    let {temp}=(data.main);
+    Tempvar.textContent= (temp-273.15).toPrecision(4);
     location.textContent=data.name;
     desc.textContent=data.weather[0].main;
 
